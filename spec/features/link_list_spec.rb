@@ -1,3 +1,5 @@
+require './app/models/link'
+
 feature 'viewing list of links on homepage' do
   scenario 'the user visits the homepage' do
     Link.create(url: 'http:www.makersacademy.com', title: 'Makers Academy')
