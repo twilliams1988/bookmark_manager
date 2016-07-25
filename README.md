@@ -2,9 +2,9 @@
 
 USER STORIES:
 
-As a user of the website
-So I can see the links of websites
-I want to be able to show a list of links
+As a time-pressed user
+So that I can quickly go to web sites I regularly visit
+I would like to see a list of links on the homepage
 
 As a user of the website
 So I can remember my favourite websites
