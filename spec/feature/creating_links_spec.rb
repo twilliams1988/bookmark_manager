@@ -1,4 +1,9 @@
 require 'spec_helper'
+# require 'database_cleaner'
+#
+# DatabaseCleaner.strategy = :truncation
+#
+# DatabaseCleaner.clean
 
 feature 'Adding links' do
   scenario 'I can add site address and title to my bookmark manager' do
