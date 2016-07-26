@@ -9,6 +9,7 @@ property :title,  String
 property :url,    String
 
 
+    
 end
 
 # DataMapper::Logger.new($stdout, :debug)
