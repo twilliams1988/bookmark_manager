@@ -1,7 +1,12 @@
 require 'sinatra/base'
 require_relative './models/link'
 
+
 class MyApp < Sinatra::Base
+
+  get '/' do
+    redirect 'links/new'
+  end
 
   get '/links' do
     @links = Link.all
