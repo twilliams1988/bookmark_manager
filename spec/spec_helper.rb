@@ -9,7 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 
-Capybara.app = MyApp
+Capybara.app = BookmarkManager
 
 
 RSpec.configure do |config|
