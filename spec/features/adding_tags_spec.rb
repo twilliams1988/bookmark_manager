@@ -9,4 +9,14 @@ feature 'Adding tags' do
     # link.tags.map {|tag| tag.name}
     expect(link.tags.map(&:name)).to include 'coding'
   end
+
+  scenario 'adding mutiple tags to a link' do
+    visit 'links/new'
+    fill_in 'url', :with => 'http://www.makersacademy.com'
+    fill_in 'title', :with => 'Makers Academy'
+    fill_in 'tags', :with => 'coding education academia'
+    click_button 'Save link'
+    link = Link.first
+    expect(link.tags.map(&:name)).to include 'coding', 'education'
+  end
 end
