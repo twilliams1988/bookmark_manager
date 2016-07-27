@@ -6,7 +6,6 @@ feature 'Adding tags' do
     fill_in 'tags', :with => 'coding'
     click_button 'Save link'
     link = Link.first
-    # link.tags.map {|tag| tag.name}
     expect(link.tags.map(&:name)).to include 'coding'
   end
 
@@ -17,6 +16,6 @@ feature 'Adding tags' do
     fill_in 'tags', :with => 'coding education academia'
     click_button 'Save link'
     link = Link.first
-    expect(link.tags.map(&:name)).to include 'coding', 'education'
+    expect(link.tags.map(&:name)).to include 'coding', 'education', 'academia'
   end
 end
