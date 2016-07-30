@@ -32,14 +32,6 @@ feature 'User sign up' do
     expect { sign_up }.not_to change(User, :count)
     expect(page).to have_content('Email is already taken')
   end
-
-  def sign_up(email: 'tommy@test.com', password: '12345678', password_confirmation: '12345678')
-    visit 'users/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
-    click_button 'Sign Up'
-  end
 end
 
 feature 'user sign in' do
@@ -52,11 +44,19 @@ feature 'user sign in' do
     expect(page).to have_content("Welcome, #{user.email}")
   end
 
-  def sign_in(email:, password:)
-    visit '/sessions/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button 'Sign In'
+end
+
+feature 'user sign out' do
+  before(:each) do
+    User.create(email: 'tommy@testy.com',
+                password: 'test',
+                password_confirmation: 'test')
   end
 
+  scenario 'user can sign out from being logged in' do
+    sign_in(email: 'tommy@testy.com', password: 'test')
+    click_button('Sign Out')
+    expect(page).to have_content("Goodbye!")
+    expect(current_path).to eq('/links')
+  end
 end
